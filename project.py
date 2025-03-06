@@ -1,4 +1,5 @@
 from simple_blogger import CommonBlogger
+from simple_blogger.generators.OpenAIGenerator import OpenAITextGenerator
 from datetime import timedelta
 
 class Project(CommonBlogger):
@@ -27,7 +28,5 @@ class Project(CommonBlogger):
             blogger_bot_token_name='ATHE_BOT_TOKEN',
             project_name='theory_the',
             days_between_posts=timedelta(days=1),
-            text_ai_token_name='OPENAI_API_KEY',
-            ai_text_model='chatgpt-4o-latest',
-            text_base_url='https://api.openai.com/v1'   
+            text_generator=OpenAITextGenerator()
         )
