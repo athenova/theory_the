@@ -28,5 +28,6 @@ class Project(CommonBlogger):
             blogger_bot_token_name='ATHE_BOT_TOKEN',
             project_name='theory_the',
             days_between_posts=timedelta(days=1),
+            send_text_with_image=True,           
             text_generator=OpenAITextGenerator()
         )
