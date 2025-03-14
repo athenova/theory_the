@@ -1,6 +1,9 @@
 from simple_blogger import CommonBlogger
 from simple_blogger.generators.OpenAIGenerator import OpenAITextGenerator
 from datetime import timedelta
+from simple_blogger.senders.TelegramSender import TelegramSender
+from simple_blogger.senders.InstagramSender import InstagramSender
+
 
 class Project(CommonBlogger):
     def _get_category_folder(self, task):
@@ -23,11 +26,9 @@ class Project(CommonBlogger):
 
     def __init__(self):
         super().__init__(
-            review_chat_id=-1002374309134,
-            production_chat_id='@theory_the',
-            blogger_bot_token_name='ATHE_BOT_TOKEN',
             project_name='theory_the',
             days_between_posts=timedelta(days=1),
-            send_text_with_image=True,           
+            reviewer=TelegramSender(),
+            senders=[TelegramSender(channel_id=f"@theory_the"), InstagramSender(channel_token_name='IN_THEORY_THE')],
             text_generator=OpenAITextGenerator()
         )
