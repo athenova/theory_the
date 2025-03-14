@@ -29,6 +29,6 @@ class Project(CommonBlogger):
             project_name='theory_the',
             days_between_posts=timedelta(days=1),
             reviewer=TelegramSender(),
-            senders=[TelegramSender(channel_id=f"@theory_the"), InstagramSender(channel_token_name='IN_THEORY_THE')],
+            senders=[TelegramSender(channel_id=f"@theory_the"), InstagramSender(channel_token_name='IN_THEORY_THE_TOKEN')],
             text_generator=OpenAITextGenerator()
         )
