@@ -3,7 +3,7 @@ from simple_blogger.generators.OpenAIGenerator import OpenAITextGenerator
 from datetime import timedelta
 from simple_blogger.senders.TelegramSender import TelegramSender
 from simple_blogger.senders.InstagramSender import InstagramSender
-
+from simple_blogger.senders.VkSender import VkSender
 
 class Project(CommonBlogger):
     def _get_category_folder(self, task):
@@ -29,6 +29,8 @@ class Project(CommonBlogger):
             project_name='theory_the',
             days_between_posts=timedelta(days=1),
             reviewer=TelegramSender(),
-            senders=[TelegramSender(channel_id=f"@theory_the"), InstagramSender(channel_token_name='IN_THEORY_THE_TOKEN')],
+            senders=[TelegramSender(channel_id=f"@theory_the"), 
+                     InstagramSender(channel_token_name='IN_THEORY_THE_TOKEN'),
+                     VkSender(group_id='229822056')],
             text_generator=OpenAITextGenerator()
-        )
+        )  
